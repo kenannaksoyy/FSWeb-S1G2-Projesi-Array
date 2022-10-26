@@ -228,44 +228,20 @@ Aşağıdakileri yapmak için rastgeleTatlar işlevini ve yeni dizileri kullanı
 
 
 function rastgeleTatlar(orijinalTatlar=[], yeniTatlar=[], mevsimlikTatlar=[], bolgeselTatlar=[]){
-  let rastgeleTatlar_dizi=[];
-  let boyut=0;
+  let matris=[orijinalTatlar, yeniTatlar, mevsimlikTatlar, bolgeselTatlar];
+  let rastgeleTatlar_dizi=[]
+  boyut=0;
   let rand_sayi;
   let rand_sayi_2;
-  while (boyut!=20){
-    rand_sayi=Math.floor(Math.random() * 5);
-    if (rand_sayi==1){
-      rand_sayi_2=Math.floor(Math.random() * orijinalTatlar.length);
-      if(!(rastgeleTatlar_dizi.includes(orijinalTatlar[rand_sayi_2]))){
-        rastgeleTatlar_dizi.push(orijinalTatlar[rand_sayi_2]);
-        boyut++;
-      }
+  while(boyut!=25){
+    rand_sayi=Math.floor(Math.random() * 4);
+    rand_sayi_2=Math.floor(Math.random() * matris[rand_sayi].length);
+    if(!(rastgeleTatlar_dizi.includes(matris[rand_sayi][rand_sayi_2]))){
+      rastgeleTatlar_dizi.push(matris[rand_sayi][rand_sayi_2]);
+      boyut++;
     }
-    else if(rand_sayi==2){
-      rand_sayi_2=Math.floor(Math.random() * yeniTatlar.length);
-      if(!(rastgeleTatlar_dizi.includes(yeniTatlar[rand_sayi_2]))){
-        rastgeleTatlar_dizi.push(yeniTatlar[rand_sayi_2]);
-        boyut++;
-      }
-    }
-    else if(rand_sayi==3){
-      rand_sayi_2=Math.floor(Math.random() * mevsimlikTatlar.length);
-      if(!(rastgeleTatlar_dizi.includes(mevsimlikTatlar[rand_sayi_2]))){
-        rastgeleTatlar_dizi.push(mevsimlikTatlar[rand_sayi_2]);
-        boyut++;
-      }
-    }
-    else if(rand_sayi==4){
-      rand_sayi_2=Math.floor(Math.random() * bolgeselTatlar.length);
-      if(!(rastgeleTatlar_dizi.includes(bolgeselTatlar[rand_sayi_2]))){
-        rastgeleTatlar_dizi.push(bolgeselTatlar[rand_sayi_2]);
-        boyut++;
-      }
-    }
-     
-    
-  }
-  return rastgeleTatlar_dizi; 
+  }  
+  return rastgeleTatlar_dizi;
 }
 
 
@@ -308,6 +284,8 @@ function rastgeleTatlar(orijinalTatlar=[], yeniTatlar=[], mevsimlikTatlar=[], bo
  ]
 
 console.log(rastgeleTatlar(orijinalTatlar, yeniTatlar, mevsimlikTatlar, bolgeselTatlar));
+
+
 /* Lütfen bu satırın altındaki hiçbir şeyi değiştirmeyin */
 function sa(){
   console.log('Calışıyor');
