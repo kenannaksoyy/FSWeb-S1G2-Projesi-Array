@@ -194,9 +194,24 @@ Aşağıdakileri yapmak için ortalamaKelimeSayisi işlevini kullanın:
    Örneğin: ortalamaKelimeSayisi(orijinalTatlar) 0 ile 2 arasında bir sayı döndürmelidir.
 */
 
-function ortalamaKelimeSayisi(/*kod buraya*/){
-  /*kod buraya*/
+function ortalamaKelimeSayisi(gelen_dizi=[]){
+  let sayac;
+  let toplam_kelime=0;
+  let gecici_str="";
+  for (let i=0;i<gelen_dizi.length;i++){
+    sayac=1;
+    gecici_str=gelen_dizi[i];
+    for (let j=0;j<gecici_str.length;j++){
+      if(gecici_str[j]==' '){
+        sayac++;
+      }
+    }
+    toplam_kelime=toplam_kelime+sayac;
+  }
+
+  return toplam_kelime/gelen_dizi.length;
 }
+console.log(ortalamaKelimeSayisi(orijinalTatlar));
 
 
 /* ALIŞTIRMA 2:
@@ -212,49 +227,87 @@ Aşağıdakileri yapmak için rastgeleTatlar işlevini ve yeni dizileri kullanı
 */
 
 
-function rastgeleTatlar(/*kod buraya*/){
-  /*kod buraya*/
+function rastgeleTatlar(orijinalTatlar=[], yeniTatlar=[], mevsimlikTatlar=[], bolgeselTatlar=[]){
+  let rastgeleTatlar_dizi=[];
+  let boyut=0;
+  let rand_sayi;
+  let rand_sayi_2;
+  while (boyut!=20){
+    rand_sayi=Math.floor(Math.random() * 5);
+    if (rand_sayi==1){
+      rand_sayi_2=Math.floor(Math.random() * orijinalTatlar.length);
+      if(!(rastgeleTatlar_dizi.includes(orijinalTatlar[rand_sayi_2]))){
+        rastgeleTatlar_dizi.push(orijinalTatlar[rand_sayi_2]);
+        boyut++;
+      }
+    }
+    else if(rand_sayi==2){
+      rand_sayi_2=Math.floor(Math.random() * yeniTatlar.length);
+      if(!(rastgeleTatlar_dizi.includes(yeniTatlar[rand_sayi_2]))){
+        rastgeleTatlar_dizi.push(yeniTatlar[rand_sayi_2]);
+        boyut++;
+      }
+    }
+    else if(rand_sayi==3){
+      rand_sayi_2=Math.floor(Math.random() * mevsimlikTatlar.length);
+      if(!(rastgeleTatlar_dizi.includes(mevsimlikTatlar[rand_sayi_2]))){
+        rastgeleTatlar_dizi.push(mevsimlikTatlar[rand_sayi_2]);
+        boyut++;
+      }
+    }
+    else if(rand_sayi==4){
+      rand_sayi_2=Math.floor(Math.random() * bolgeselTatlar.length);
+      if(!(rastgeleTatlar_dizi.includes(bolgeselTatlar[rand_sayi_2]))){
+        rastgeleTatlar_dizi.push(bolgeselTatlar[rand_sayi_2]);
+        boyut++;
+      }
+    }
+     
+    
+  }
+  return rastgeleTatlar_dizi; 
 }
 
+
 // NEW DATA ARRAYS FOR STRETCH 2 ⬇️
-// const yeniTatlar = [
-//   "Badem",
-//   "Ballı Badem",
-//   "Fıstık Ezmesi",
-//   "Profiterol",
-//   "Madlen Çikolata"
-// ]
+ const yeniTatlar = [
+   "Badem",
+   "Ballı Badem",
+   "Fıstık Ezmesi",
+   "Profiterol",
+   "Madlen Çikolata"
+ ]
 
-// const mevsimlikTatlar = [
-// "Pekan",
-// "Kaju",
-// "Çikolatalı Mousse",
-// "Fransız Vanilyası",
-// "Yumurta",
-// "Alman çikolatası",
-// "Kek üzerine krema",
-// "Hindistan Cevizi",
-// "Kaymaklı Biskuvi",
-// "Beyaz Çikolata",
-// "Mango"
-// ]
+ const mevsimlikTatlar = [
+ "Pekan",
+ "Kaju",
+ "Çikolatalı Mousse",
+ "Fransız Vanilyası",
+ "Yumurta",
+ "Alman çikolatası",
+ "Kek üzerine krema",
+ "Hindistan Cevizi",
+ "Kaymaklı Biskuvi",
+ "Beyaz Çikolata",
+ "Mango"
+ ]
 
-// const bolgeselTatlar = [
-// "Kaymak",
-// "Karpuz",
-// "Karadut",
-// "Turunç",
-// "Portakal",
-// "Yogurt",
-// "Krem Peynir",
-// "Kakao",
-// "Karamel macchiato",
-// "Kuru üzüm",
-// "Peynir",
-// "Karamel"
-// ]
+ const bolgeselTatlar = [
+ "Kaymak",
+ "Karpuz",
+ "Karadut",
+ "Turunç",
+ "Portakal",
+ "Yogurt",
+"Krem Peynir",
+ "Kakao",
+ "Karamel macchiato",
+ "Kuru üzüm",
+ "Peynir",
+ "Karamel"
+ ]
 
-
+console.log(rastgeleTatlar(orijinalTatlar, yeniTatlar, mevsimlikTatlar, bolgeselTatlar));
 /* Lütfen bu satırın altındaki hiçbir şeyi değiştirmeyin */
 function sa(){
   console.log('Calışıyor');
