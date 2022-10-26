@@ -234,7 +234,7 @@ function rastgeleTatlar(orijinalTatlar=[], yeniTatlar=[], mevsimlikTatlar=[], bo
   let rand_sayi;
   let rand_sayi_2;
   while(boyut!=25){
-    rand_sayi=Math.floor(Math.random() * 4);
+    rand_sayi=Math.floor(Math.random() * matris.length);
     rand_sayi_2=Math.floor(Math.random() * matris[rand_sayi].length);
     if(!(rastgeleTatlar_dizi.includes(matris[rand_sayi][rand_sayi_2]))){
       rastgeleTatlar_dizi.push(matris[rand_sayi][rand_sayi_2]);
