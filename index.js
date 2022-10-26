@@ -230,7 +230,7 @@ Aşağıdakileri yapmak için rastgeleTatlar işlevini ve yeni dizileri kullanı
 function rastgeleTatlar(orijinalTatlar=[], yeniTatlar=[], mevsimlikTatlar=[], bolgeselTatlar=[]){
   let matris=[orijinalTatlar, yeniTatlar, mevsimlikTatlar, bolgeselTatlar];
   let rastgeleTatlar_dizi=[]
-  boyut=0;
+  let boyut=0;
   let rand_sayi;
   let rand_sayi_2;
   while(boyut!=25){
